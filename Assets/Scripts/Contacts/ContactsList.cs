@@ -34,7 +34,7 @@ namespace ContactList.Contacts
         {
             if (cardSaveData.Cards.Count <= 0)
             {
-                for (int i = 0; i < _data.StartLoadCount; i++)
+                for (int i = 0; i < _employeeData.data.Length; i++)
                 {
                     _textureLoader.LoadImage(CreateNewCard);
                 }
@@ -43,15 +43,18 @@ namespace ContactList.Contacts
             {
                 foreach (var card in cardSaveData.Cards)
                 {
-                    Texture2D texture = new Texture2D(0, 0);
-                    
                     if (card.Texture != null)
                     {
+                        Texture2D texture = new Texture2D(1, 1);
+                        
                         texture.LoadImage(card.Texture);
+                        _contactListView.CreateContact(_fileLoader.GetEmployer(card.Id), card.IsFavorite,
+                            texture);
                     }
-                    
-                    _contactListView.CreateContact(_fileLoader.GetEmployer(card.Id), card.IsFavorite,
-                        texture);
+                    else
+                    {
+                        _contactListView.CreateContact(_fileLoader.GetEmployer(card.Id), card.IsFavorite);
+                    }
                 }
             }
         }

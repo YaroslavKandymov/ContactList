@@ -26,7 +26,7 @@ namespace ContactList.UI
 
         public virtual void Init(Employer employer, bool isFavorite, Texture2D avatar = null)
         {
-            _name.text = $"{employer.first_name} {employer.lastName}";
+            _name.text = $"{employer.first_name} {employer.last_name}";
             _contacts.text = $"{employer.email}";
             _ipAddress.text = $"{employer.ip_address}";
             Employer = employer;

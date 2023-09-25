@@ -22,7 +22,7 @@ namespace ContactList.UI
             }
         }
 
-        public void CreateContact(Employer employer, bool isFavorite, Texture2D avatar)
+        public void CreateContact(Employer employer, bool isFavorite, Texture2D avatar = null)
         {
             var card = _cardsFactory.CreateCard(_parent);
             

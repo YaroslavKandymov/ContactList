@@ -19,8 +19,6 @@ namespace ContactList.Loaders
             UnityWebRequest request = UnityWebRequestTexture.GetTexture(_url);
 
             yield return request.SendWebRequest();
-            
-            Debug.Log(request.result);
 
             if (request.result == UnityWebRequest.Result.Success)
             {
